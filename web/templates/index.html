@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Library Management System</h1>
+
+        {% if current_user.is_authenticated %}
+        <p>Welcome, {{ current_user.name }}!</p>
+        <ul>
+            <li><a href="{{ url_for('show_books') }}">Книги</a></li>
+            <li><a href="{{ url_for('show_members') }}">Пользователи</a></li>
+            <li><a href="{{ url_for('show_add_book') }}">Добавить книгу</a></li>
+            <li><a href="{{ url_for('show_register_member') }}">Зарегистрировать пользователя</a></li>
+            <li><a href="{{ url_for('show_borrow_book') }}">Прокат книги</a></li>
+            <li><a href="{{ url_for('show_return_book') }}">Вернуть книгу</a></li>
+            <li><a href="{{ url_for('show_reserve_book') }}">Забронировать книгу</a></li>
+            <li><a href="{{ url_for('show_cancel_reservation') }}">Отменить бронирование</a></li>
+        </ul>
+        <a href="{{ url_for('logout') }}">Выйти</a>
+        {% else %}
+        <ul>
+            <li><a href="{{ url_for('login') }}">Вход</a></li>
+            <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

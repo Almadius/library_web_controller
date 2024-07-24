@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Member</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register Member</h1>
+        <a href="{{ url_for('index') }}">На главную</a>
+
+        <form action="{{ url_for('register_member') }}" method="post">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="member_id">ID:</label>
+            <input type="number" id="member_id" name="member_id" required>
+            <button type="submit">Зарегистрировать</button>
+        </form>
+    </div>
+</body>
+</html>
